@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de CPF Válido</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔢 Gerador de CPF Válido</h1>
+        
+        <div class="cpf-container">
+            <h2>CPF Gerado:</h2>
+            <div class="cpf-display" id="cpfOutput">000.000.000-00</div>
+            
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="gerarCPF()">Gerar Novo CPF</button>
+                <button class="btn btn-secondary" onclick="copiarCPF()">Copiar CPF</button>
+            </div>
+
+            <div id="status" class="status"></div>
+        </div>
+
+        <div class="criteria-box">
+            <h2>📋 Critérios de Validação do CPF:</h2>
+            <ul class="criteria-list">
+                <li><strong>Formato:</strong> 11 dígitos (XXX.XXX.XXX-XX)</li>
+                <li><strong>Dígitos repetidos:</strong> Não são válidos (ex: 111.111.111-11)</li>
+                <li><strong>1º Dígito Verificador:</strong> 
+                    <br>- Multiplica os 9 primeiros dígitos pelos pesos 10 a 2
+                    <br>- Soma os resultados e divide por 11
+                    <br>- Se resto &lt; 2, dígito = 0; senão, dígito = 11 - resto
+                </li>
+                <li><strong>2º Dígito Verificador:</strong>
+                    <br>- Multiplica os 10 primeiros dígitos pelos pesos 11 a 2
+                    <br>- Mesmo cálculo do resto
+                </li>
+            </ul>
+        </div>
+
+        <div class="validation-link">
+            <p>✅ Teste o CPF gerado em um validador online:</p>
+            <a href="https://www.4devs.com.br/validador_cpf" target="_blank">
+                🔗 www.4devs.com.br/validador_cpf
+            </a>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                (O link abrirá em uma nova aba)
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
